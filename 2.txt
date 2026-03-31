@@ -1,0 +1,22 @@
+ Input Text    //input[@id="my-text-id"]     Entro QA
+ Input Text    //input[@name="my-password"]     P@ssw0rd!
+ Input Text    //textarea[@name="my-textarea"]     This is a test textarea input.
+  ${value} =    Get Value    //input[@name="my-disabled"]
+  Run Keyword If    "${value}" == "Readonly input"    Log    value disabled
+    ...    ELSE    Log     value not disabled
+  ${value} =    Get Value    //input[@name="my-readonly"]
+  Run Keyword If    "${value}" == "Readonly input"    Log    value does not change
+    ...    ELSE    Log     not pass value does not change
+ Select From List By Label    name:my-select    1
+ Input Text    //input[@name="my-datalist"]      Chicago
+ Choose File    input=[@class="form-control"]     ${CURDIR}/path/to/your/file.png
+ Click Element   id="my-check-2"
+ Click Element   id="my-radio-2"
+ Input Text    //input[@name="my-date"]     14/02/2026
+
+ &{my_dict} =    Create Dictionary    class="form-control form-control-color"
+ Set Dictionary Value    &{my_dict}    value=#ff0000
+ &{my_range} =    Create Dictionary    class="form-range"
+ Set Dictionary Value    &{my_range}    step="8"
+ Click Element   id="my-radio-2"
+ Click Element    class="btn btn-outline-primary mt-3"
